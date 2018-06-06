@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 if(isset($_POST["send"]) && $_POST["send"]=="ok"){
 	$out = "";
 	foreach($_POST as $key => $value){
